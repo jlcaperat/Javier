@@ -1,16 +1,35 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form>
+            <form  [formGroup]="myForm">
+
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Usuario</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="correo" class="form-label">Correo</label>
+                    <input type="email" formControlName="correo" class="form-control" id="correo"
+                        aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Ingresar</button>
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" formControlName="nombre" class="form-control" id="nombre">
+                </div>
+                <div class="mb-3">
+                    <label for="Apellido" class="form-label">Apellido</label>
+                    <input type="text" formControlName="apellido" class="form-control" id="Apellido">
+                </div>
+                 <div>
+                    <label class="form-label">Pais</label>
+                    <select class="form-select" formControlName="pais"  aria-label="Default select example">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                    </select>
+                </div>
+                <div class="pt-3 ">
+                    <button type="submit" class="btn btn-primary" (click)="registrar()">Registrar</button>
+                </div>
             </form>
         </div>
     </div>
