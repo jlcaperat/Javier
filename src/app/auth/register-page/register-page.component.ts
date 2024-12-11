@@ -24,14 +24,18 @@ export class RegisterPageComponent {
 
     nombre: new FormControl('', [Validators.minLength(4), Validators.required], []),
     apellido: new FormControl('', [Validators.minLength(4), Validators.required], []),
-    correo: new FormControl('', [Validators.minLength(20), Validators.required], []),
+    correo: new FormControl('', [Validators.minLength(20), Validators.required, Validators.email], []),
     pais: new FormControl('', [Validators.required], []),
     usuario: new FormControl('', [Validators.minLength(4), Validators.required], []),
     password: new FormControl('', [Validators.minLength(4), Validators.required], [])
   })
 
   registrar() {
-   console.log(this.myForm.value)
+    if (this.myForm.invalid) {
+      return
+    }
+
+    console.log(this.myForm.value)
     this.router.navigateByUrl('/')
   }
 

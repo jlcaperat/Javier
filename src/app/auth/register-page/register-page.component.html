@@ -1,36 +1,119 @@
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form  [formGroup]="myForm">
+    <div class="row">
+        <form [formGroup]="myForm">
+            <div class="row">
+                <div class="col">
+                    <label for="correo" class="form-label  pt-2">Correo</label>
+                    <input type="correo" formControlName="correo" class="form-control" id="correo"
+                        aria-describedby="emailHelp" name="correo">
+                    @if (myForm.controls['correo'].dirty || myForm.controls['correo'].touched ) {
+                    @if (myForm.controls['correo'].getError('required')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small>Campo requerido </small>
+                    </div>
+                    }
+                    @if (myForm.controls['correo'].getError('email')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small> Debe tener el formato de correo electronico </small>
+                    </div>
+                    }
+                    }
+                </div>
+                <div class="col">
+                    <label for="password" class="form-label  pt-2"> Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="password"
+                        name="password" />
+                    @if (myForm.controls['password'].invalid && (myForm.controls['password'].dirty ||
+                    myForm.controls['password'].touched)){
+                    @if (myForm.controls['password'].getError('required')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small>Campo requerido </small>
+                    </div>
+                    }
 
-                <div class="mb-3">
-                    <label for="correo" class="form-label">Correo</label>
-                    <input type="email" formControlName="correo" class="form-control" id="correo"
-                        aria-describedby="emailHelp">
+                    @if (myForm.controls['password'].getError('minlength')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small> Debe tener minimo cuatro caracteres </small>
+                    </div>
+                    }
+                    }
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" formControlName="password" class="form-control" id="password">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="usuario" class="form-label  pt-2">Usuario</label>
+                    <input type="text" formControlName="usuario" class="form-control" id="usuario" name="usuario" />
+                    @if (myForm.controls['usuario'].dirty || myForm.controls['usuario'].touched) {
+
+                    @if (myForm.controls['usuario'].getError('required')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small>Campo requerido </small>
+                    </div>
+                    }
+                    @if (myForm.controls['usuario'].getError('minlength')) {
+                    <div class="alert alert-danger p-1" role="alert">
+                        <small> Debe tener minimo cuatro caracteres </small>
+                    </div>
+                    }
+                    }
                 </div>
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" formControlName="nombre" class="form-control" id="nombre">
+                <div class="col">
+                    <label for="nombre" class="form-label  pt-2">Nombre</label>
+                    <input type="text" formControlName="nombre" class="form-control" id="nombre" name="nombre" />
+                    @if (myForm.controls['nombre'].dirty || myForm.controls['nombre'].touched) {
+                    @if (myForm.controls['nombre'].getError('required')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small>Campo requerido </small>
+                    </div>
+                    }
+                    @if (myForm.controls['nombre'].getError('minlength')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small> Debe tener minimo cuatro caracteres </small>
+                    </div>
+                    }
+                    }
                 </div>
-                <div class="mb-3">
-                    <label for="Apellido" class="form-label">Apellido</label>
-                    <input type="text" formControlName="apellido" class="form-control" id="Apellido">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="Apellido" class="form-label  pt-2">Apellido</label>
+                    <input type="text" formControlName="apellido" class="form-control" id="Apellido" name="apellido" />
+                    @if (myForm.controls['apellido'].dirty || myForm.controls['apellido'].touched) {
+
+                    @if (myForm.controls['apellido'].getError('required')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small>Campo requerido </small>
+                    </div>
+                    }
+                    @if (myForm.controls['nombre'].getError('minlength')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small> Debe tener minimo cuatro caracteres </small>
+                    </div>
+                    }
+                    }
                 </div>
-                 <div>
-                    <label class="form-label">Pais</label>
-                    <select class="form-select" formControlName="pais"  aria-label="Default select example">
+                <div class="col">
+                    <label class="form-label pt-2">Pais</label>
+                    <select class="form-select" formControlName="pais" aria-label="Default select example" name="pais">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
                     </select>
+                    @if (myForm.controls['pais'].dirty || myForm.controls['pais'].touched) {
+
+                    @if (myForm.controls['pais'].getError('required')) {
+                    <div class="alert alert-danger p-1" role="alert">
+                        <small>Campo requerido </small>
+                    </div>
+                    }
+                    }
                 </div>
-                <div class="pt-3 ">
+            </div>
+            <div class="row">
+                <div class="col pt-3 ">
                     <button type="submit" class="btn btn-primary" (click)="registrar()">Registrar</button>
-                </div>
-            </form>
-        </div>
+                </div>            
+            </div>
+        
+        </form>
     </div>
 </div>

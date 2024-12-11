@@ -15,6 +15,10 @@ export const routes: Routes = [
                 loadComponent: () => import('./register-page/register-page.component').then((m) => m.RegisterPageComponent)
             },
             {
+                path: 'recuperar',
+                loadComponent: () => import('./recuperar-correo/recuperar-correo.component').then((m) => m.RecuperarCorreoComponent)
+            },
+            {
                 path: '**',
                 redirectTo: 'login'
             }

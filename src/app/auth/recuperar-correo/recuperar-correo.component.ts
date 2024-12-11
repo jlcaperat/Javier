@@ -3,27 +3,29 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 @Component({
-  selector: 'login-page',
+  selector: 'app-recuperar-correo',
   standalone: true,
   imports: [RouterModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.css'
+  templateUrl: './recuperar-correo.component.html',
+  styleUrl: './recuperar-correo.component.css'
 })
-export class LoginPageComponent {
+export class RecuperarCorreoComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router){
 
   }
 
   public myForm: FormGroup = new FormGroup({
-    correo: new FormControl('', [Validators.minLength(20), Validators.required, Validators.email], []),
-    password: new FormControl('', [Validators.minLength(4), Validators.required], [])
+    correo: new FormControl('', [Validators.minLength(20), Validators.required, Validators.email], [])
   })
 
+  recordar() {
+    if (this.myForm.invalid) {
+      return
+    }
 
-  login() {
     console.log(this.myForm.value)
-    this.router.navigate(['/']);
+    this.router.navigateByUrl('/')
   }
 
 }
