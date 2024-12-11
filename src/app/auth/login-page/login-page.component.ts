@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RecuperarCorreoComponent } from "../recuperar-correo/recuperar-correo.component";
 @Component({
   selector: 'login-page',
   standalone: true,
-  imports: [RouterModule, FormsModule, ReactiveFormsModule],
+  imports: [RouterModule, FormsModule, ReactiveFormsModule, RecuperarCorreoComponent],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.css'
 })

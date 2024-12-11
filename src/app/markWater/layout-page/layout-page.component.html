@@ -1,11 +1,75 @@
-<div class="container">
-    <div class="row p-2">
-        <div class="col text-center">
-            <h2>¡Siempre visible y siempre en movimiento!</h2>
-              
-        </div>
-        <div class="col">
+<div class="container pt-5">
+    <form [formGroup]="myForm">
+        <div class="row">
 
+            <div class="col text-center">
+                <h2>¡Siempre visible y siempre en movimiento!</h2>
+                <br>
+                <br>
+                <p>por dos dólares</p>
+                <br>
+                <br>
+                <label for="colorMarcaAgua">Color de la marca de agua</label>
+                <br>
+                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" style="background-color: #6197ed;" type="radio"
+                        name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineRadio2"></label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" style="background-color: #f20b0b;" type="radio"
+                        name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                    <label class="form-check-label" for="inlineRadio3"> </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" style="background-color: #f3ff17;" type="radio"
+                        name="inlineRadioOptions" id="inlineRadio3" value="option4">
+                    <label class="form-check-label" for="inlineRadio3"> </label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" style="background-color: #30ca30;" type="radio"
+                        name="inlineRadioOptions" id="inlineRadio3" value="option4">
+                    <label class="form-check-label" for="inlineRadio3"> </label>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="texto" class="form-label">Texto de la marca de agua</label>
+                    <input type="text" formControlName="texto" class="form-control" id="texto"
+                        aria-describedby="emailHelp" name="correo">
+                    @if (myForm.controls['texto'].dirty || myForm.controls['texto'].touched ) {
+                    @if (myForm.controls['texto'].getError('required')) {
+                    <div class="alert alert-danger  p-1" role="alert">
+                        <small>Campo requerido </small>
+                    </div>
+                    }
+
+                    @if (myForm.controls['texto'].getError('length')) {
+                    <div class="alert alert-danger   p-1" role="alert">
+                        <small> Debe tener el formato de correo electronico </small>
+                    </div>
+                    }
+                    }
+                </div>
+                <div class="form-check  form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      Se descargarn dos dolarés de su saldo
+                    </label>
+                  </div>
+                <div class="col pt-5"> 
+                    <button type="submit" class="btn btn-success" (click)="crear()">Crear marca</button>
+                </div>
+            </div>
+            <div class="col border border-primary p-2">
+
+            </div>
         </div>
-    </div>
+    </form>
 </div>
